@@ -1,9 +1,9 @@
-# Rikin Shah — AI Avatar Portfolio Website with KG Base
+# Rikin Shah — AI Avatar Portfolio Website
 <img width="1902" height="1022" alt="image" src="https://github.com/user-attachments/assets/2296dc44-162a-4aa2-92c7-7c83f0500003" />
 
 A creative, fully responsive portfolio website featuring a custom 3D avatar, physics-based interactions, AI-powered chat, and scroll-driven animations.
 
-**Live:** [rikin.tech](https://rikin.tech)
+**Live:** [rikin.tech](https://shahrikin.vercel.app)
 
 ## Features
 
