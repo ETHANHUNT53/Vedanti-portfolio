@@ -11,16 +11,17 @@ A step-by-step guide to create the 3D avatar used in this portfolio, starting fr
 **Goal:** a clean, front-facing, full-body cartoon/3D-render of yourself. This becomes the reference image for the 3D generator.
 
 1. Take (or pick) a clear photo of yourself — good lighting, face visible, ideally standing.
-2. Open **ChatGPT** (a model with image generation) and upload the photo.
+2. Open **ChatGPT or Claude** (a model with image generation) and upload the photo.
 3. Paste this prompt (edit the outfit to match what you want):
 
 ```text
-Turn this photo into a cute stylized 3D cartoon character, Pixar / 3D-render style.
-Full body, standing in a relaxed A-pose facing the camera, arms slightly away from
-the body, both feet visible. Neutral friendly expression. Keep my face, hairstyle,
-and skin tone recognizable. Outfit: a bright green hoodie, dark navy jeans, and
-sneakers. Plain solid light-gray studio background, soft even lighting, centered,
-head-to-toe in frame, high detail, sharp, front view only.
+Create a high-quality full-body 3D stylized cartoon character based on the uploaded reference photo. Preserve the person's facial identity, hairstyle, beard, eyebrows, skin tone, nose shape, lips, ears, and overall resemblance. Transform the face into a cute Pixar/Disney-inspired style with slightly oversized expressive brown eyes, smooth skin, and a friendly smile while keeping the person instantly recognizable.
+
+Dress the character in a bright lime-green hoodie with drawstrings, dark blue slim-fit jeans, and navy-blue sneakers with white soles and laces. Show the character standing in a relaxed pose with both hands inside the hoodie pocket.
+
+Use realistic fabric textures, soft global illumination, subtle ambient occlusion, and cinematic studio lighting. Render the entire body from head to toe, centered, facing forward, against a clean white seamless background with a soft floor shadow.
+
+Style: premium Pixar/Disney-quality 3D character, highly detailed, ultra-clean render, vibrant colors, smooth shading, symmetrical composition, adorable proportions with a slightly larger head (about 1:5 body ratio), photorealistic materials, 8K, ultra-sharp, professional character desig
 ```
 
 **Tips for a 3D-friendly result:**
@@ -38,10 +39,7 @@ Use an **image-to-3D** generator. Any of these work and export `.glb`:
 
 | Tool | URL | Notes |
 |------|-----|-------|
-| **Meshy AI** | meshy.ai | Image→3D, auto-rigging, free credits |
-| **Tripo AI** | tripo3d.ai | Fast, good quality, GLB export |
-| **Hyper3D Rodin** | hyper3d.ai | High detail |
-| **Luma Genie** | lumalabs.ai/genie | Text/image to 3D |
+USE - https://3d.hunyuanglobal.com/ ( Free )
 
 Steps (Meshy/Tripo are the same idea):
 
