@@ -4,7 +4,7 @@ An open-source, fully responsive portfolio template featuring a custom 3D avatar
 
 **Live demo:** [shahrikin.vercel.app](https://shahrikin.vercel.app)
 
-<!-- Add a screenshot or GIF of your site here -->
+<img width="1902" height="1022" alt="3D Creative Portfolio preview" src="https://github.com/user-attachments/assets/2296dc44-162a-4aa2-92c7-7c83f0500003" />
 
 ## Features
 
