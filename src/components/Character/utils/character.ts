@@ -1,5 +1,10 @@
 import * as THREE from "three";
 import { GLTFLoader, DRACOLoader } from "three-stdlib";
+import {
+  AVATAR_MODEL_URL,
+  AVATAR_POSITION,
+  AVATAR_SCALE,
+} from "../../../data/avatar";
 
 export interface CharacterRefs {
   character: THREE.Group;
@@ -17,14 +22,14 @@ const isMobile = () =>
   /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) ||
   (window.innerWidth <= 1024 && "ontouchstart" in window);
 
-const AVATAR_MODEL = "/models/avatar.glb";
+const AVATAR_MODEL = AVATAR_MODEL_URL;
 
-export function createRikinCharacter(
+export function createAvatarCharacter(
   onProgress?: (pct: number) => void,
   onLoaded?: () => void
 ): CharacterRefs {
   const character = new THREE.Group();
-  character.name = "rikin-character";
+  character.name = "portfolio-avatar";
   const mobile = isMobile();
 
   const dracoLoader = new DRACOLoader();
@@ -46,8 +51,8 @@ export function createRikinCharacter(
           }
         }
       });
-      model.scale.setScalar(1.6);
-      model.position.set(0, -0.9, 0);
+      model.scale.setScalar(AVATAR_SCALE);
+      model.position.set(...AVATAR_POSITION);
       character.add(model);
       dracoLoader.dispose();
       onLoaded?.();

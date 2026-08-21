@@ -133,6 +133,11 @@
 .work-box-wide {
   width: 620px;
 }
+.work-box-empty .work-title {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
 .work-section-block {
   margin-bottom: 18px;
 }

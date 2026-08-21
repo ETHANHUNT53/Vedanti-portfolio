@@ -1,6 +1,6 @@
 import "./styles/Work.css";
-import gsap from "gsap";import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(useGSAP);
 
@@ -90,6 +90,10 @@ const WORK_PROJECTS: WorkProject[] = [
       },
     ],
   },
+  {
+    name: "",
+    sections: [],
+  },
 ];
 
 const Work = () => {
@@ -162,29 +166,35 @@ const Work = () => {
         <div className="work-flex">
           {WORK_PROJECTS.map((project, index) => (
             <div
-              className={`work-box${project.sections.length > 2 ? " work-box-wide" : ""}`}
-              key={project.name}
+              className={`work-box${project.sections.length > 2 ? " work-box-wide" : ""}${project.sections.length === 0 ? " work-box-empty" : ""}`}
+              key={`work-card-${index + 1}`}
             >
               <div className="work-info">
-                <div className="work-title">
-                  <h3>0{index + 1}</h3>
-                  <div>
-                    <h4>{project.name}</h4>
-                    {project.category && <p>{project.category}</p>}
+                {(project.name || project.sections.length > 0) && (
+                  <div className="work-title">
+                    <h3>0{index + 1}</h3>
+                    {project.name && (
+                      <div>
+                        <h4>{project.name}</h4>
+                        {project.category && <p>{project.category}</p>}
+                      </div>
+                    )}
                   </div>
-                </div>
-                <div className="work-info-scroll">
-                  {project.sections.map((section) => (
-                    <div className="work-section-block" key={section.title}>
-                      <h4>{section.title}</h4>
-                      <ul className="work-list">
-                        {section.items.map((item) => (
-                          <li key={item}>{item}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
+                )}
+                {project.sections.length > 0 && (
+                  <div className="work-info-scroll">
+                    {project.sections.map((section) => (
+                      <div className="work-section-block" key={section.title}>
+                        <h4>{section.title}</h4>
+                        <ul className="work-list">
+                          {section.items.map((item) => (
+                            <li key={item}>{item}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           ))}

@@ -1,0 +1,72 @@
+.profile-avatar.character-model {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: visible;
+}
+
+.profile-avatar-figure {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  transform-origin: center bottom;
+}
+
+.profile-avatar-figure::before {
+  content: "";
+  position: absolute;
+  bottom: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(72%, 320px);
+  height: 18%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(16, 185, 129, 0.22) 0%,
+    rgba(16, 185, 129, 0.08) 45%,
+    transparent 72%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.profile-avatar-figure img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: auto;
+  height: auto;
+  max-height: min(78vh, 920px);
+  max-width: min(440px, 92vw);
+  object-fit: contain;
+  object-position: bottom center;
+  mix-blend-mode: multiply;
+  filter: drop-shadow(0 18px 42px rgba(0, 0, 0, 0.38));
+  -webkit-mask-image: linear-gradient(to bottom, #000 88%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 88%, transparent 100%);
+}
+
+@media screen and (max-width: 1024px) {
+  .landing-avatar-slot .profile-avatar-figure img {
+    max-height: 36vh;
+    max-width: min(320px, 88vw);
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .profile-avatar-figure img {
+    max-height: 100vh;
+    max-width: min(480px, 36vw);
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .profile-avatar-figure img {
+    max-width: min(520px, 34vw);
+  }
+}

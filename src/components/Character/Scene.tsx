@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
-import { createRikinCharacter } from "./utils/character";
+import { createAvatarCharacter } from "./utils/character";
 import setLighting from "./utils/lighting";
 import { setupAnimations } from "./utils/animationUtils";
 import { createMouseTracker } from "./utils/mouseUtils";
@@ -82,7 +82,7 @@ const Scene = () => {
     const light = setLighting(scene);
 
     // Build character with real loading progress
-    const refs = createRikinCharacter(
+    const refs = createAvatarCharacter(
       (pct) => {
         progress.setPercent(pct);
       },
