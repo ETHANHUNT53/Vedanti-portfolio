@@ -65,6 +65,8 @@ const WORK_PROJECTS: WorkProject[] = [
         items: [
           { label: "Portico WebWorks", href: "https://porticowebworks.com/" },
           { label: "Zarnik", href: "https://zarnik.com/" },
+          { label: "Compliance Bridge", href: "https://compliance-bridge.com/" },
+          { label: "Dollartraq", href: "https://www.dollartraq.com/" },
         ],
       },
     ],
