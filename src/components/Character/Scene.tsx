@@ -129,7 +129,7 @@ const Scene = () => {
     }
 
     // GSAP scroll timelines
-    setCharTimeline(refs.character, camera);
+    setCharTimeline();
     setAllTimeline();
 
     // Resize
