@@ -45,12 +45,12 @@ const WORK_PROJECTS: WorkProject[] = [
         title: "LinkedIn Posts For",
         items: [
           {
-            label: "Juhi Fertility",
-            href: "https://www.linkedin.com/posts/juhi-fertility_juhifertility-fertilityjourney-familydreams-activity-7150071277355941888-VQaF?utm_source=share&utm_medium=member_desktop",
+            label: "Startup Veda",
+            href: "https://www.linkedin.com/company/startupveda/",
           },
           {
-            label: "TradeX",
-            href: "https://docs.google.com/document/d/1D3_3vYaNCkrVxylnmkmU1pXMFvQYqBOppfwqa2dXcDU/edit?usp=sharing",
+            label: "Portico Webworks",
+            href: "https://www.linkedin.com/company/porticowebworks/",
           },
         ],
       },
