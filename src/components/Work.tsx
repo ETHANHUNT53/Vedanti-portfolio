@@ -1,14 +1,19 @@
 import "./styles/Work.css";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(useGSAP);
 
-interface WorkSection {
-  title: string;
-  items: string[];
+interface WorkItem {
+  label: string;
+  href?: string;
 }
 
+interface WorkSection {
+  title: string;
+  items: WorkItem[];
+}
 interface WorkProject {
   name: string;
   category?: string;
@@ -23,7 +28,12 @@ const WORK_PROJECTS: WorkProject[] = [
     sections: [
       {
         title: "Instagram Creatives For",
-        items: ["VRG Digital", "Juhi Fertility", "TradeX", "JOLOCHIP"],
+        items: [
+          { label: "VRG Digital", href: "https://www.instagram.com/vrgdigital12/" },
+          { label: "Juhi Fertility", href: "https://www.instagram.com/juhi_fertilitycentre/" },
+          { label: "TradeX", href: "https://www.instagram.com/tradex.live/" },
+          { label: "JOLOCHIP", href: "https://www.instagram.com/p/CwSGtVTPmmR/" },
+        ],
       },
     ],
   },
@@ -33,7 +43,16 @@ const WORK_PROJECTS: WorkProject[] = [
     sections: [
       {
         title: "LinkedIn Posts For",
-        items: ["Juhi Fertility", "TradeX"],
+        items: [
+          {
+            label: "Juhi Fertility",
+            href: "https://www.linkedin.com/posts/juhi-fertility_juhifertility-fertilityjourney-familydreams-activity-7150071277355941888-VQaF?utm_source=share&utm_medium=member_desktop",
+          },
+          {
+            label: "TradeX",
+            href: "https://docs.google.com/document/d/1D3_3vYaNCkrVxylnmkmU1pXMFvQYqBOppfwqa2dXcDU/edit?usp=sharing",
+          },
+        ],
       },
     ],
   },
@@ -43,7 +62,10 @@ const WORK_PROJECTS: WorkProject[] = [
     sections: [
       {
         title: "Landing Pages",
-        items: ["Portico WebWorks", "Zarnik"],
+        items: [
+          { label: "Portico WebWorks", href: "https://porticowebworks.com/" },
+          { label: "Zarnik", href: "https://zarnik.com/" },
+        ],
       },
     ],
   },
@@ -54,38 +76,74 @@ const WORK_PROJECTS: WorkProject[] = [
       {
         title: "Interior Design and Furniture Samples",
         items: [
-          "Best Colour Combinations to Decorate Your Kid's Room",
-          "Best Outdoor Furniture Collection For Small Outdoor Spaces",
-          "Convertible Furniture For Kids: Grow With Your Child's Changing Needs",
-          "Are You Planning Your Dream Home – Important Tips To Keep In Mind Before Doing",
+          {
+            label: "Best Colour Combinations to Decorate Your Kid's Room",
+            href: "https://docs.google.com/document/d/18nbOVURPv-_9u455LjBlo-jCfXNAOn2vcszJYDNmTb4/edit?usp=sharing",
+          },
+          {
+            label: "Best Outdoor Furniture Collection For Small Outdoor Spaces",
+            href: "https://docs.google.com/document/d/1RezuvuRcacMTuqbt3CLO89YzVuU-mgrS0I9UCO65GUk/edit?usp=sharing",
+          },
+          {
+            label: "Convertible Furniture For Kids: Grow With Your Child's Changing Needs",
+            href: "https://docs.google.com/document/d/1FDr55U4h9ESp3g8n8LPo6ytR5fndXjxeFCay2JYirG8/edit?usp=sharing",
+          },
+          {
+            label: "Are You Planning Your Dream Home – Important Tips To Keep In Mind Before Doing",
+            href: "https://docs.google.com/document/d/1BCTbuDfjZtpkgiYTigEH--jnjZ6IqjYr8hdDZX9zF3M/edit?usp=sharing",
+          },
         ],
       },
       {
         title: "Real Estate Samples",
         items: [
-          "Basic Information For Expatriates To Buy A House In Amsterdam",
-          "Best Places To Own A Property In Hague",
+          {
+            label: "Basic Information For Expatriates To Buy A House In Amsterdam",
+            href: "https://docs.google.com/document/d/1uDG6X1SEBG6f34-u9lIcjdIaLf4drD2EHNJX7HGiVsE/edit",
+          },
+          {
+            label: "Best Places To Own A Property In Hague",
+            href: "https://docs.google.com/document/d/1BfV2Lo4RQJl-qzDGy00R-WDjgQmzYO9-Q07_BajKJm0/edit?usp=sharing",
+          },
         ],
       },
       {
         title: "Finance Samples",
         items: [
-          "Best Private grants for individuals with disabilities",
-          "Why dental grants for low-income adults are essential",
+          {
+            label: "Best Private grants for individuals with disabilities",
+            href: "https://docs.google.com/document/d/1kAu-0AB6pApQvIClPLtGgSUCpol3cKZQAAz17DpsGPQ/edit?usp=sharing",
+          },
+          {
+            label: "Why dental grants for low-income adults are essential",
+            href: "https://docs.google.com/document/d/13wjvuVpzAq3grQaEkkEX1tv0i6ANtv4Iryvk55cZu6A/edit?usp=sharing",
+          },
         ],
       },
       {
         title: "Visa Consultant-Related Samples",
         items: [
-          "A STUDY ABROAD DESTINATION CAN OFFER YOU THESE 5 PERKS",
-          "Experts in Canada Study Visa Consultation in Ludhiana",
+          {
+            label: "A STUDY ABROAD DESTINATION CAN OFFER YOU THESE 5 PERKS",
+            href: "https://docs.google.com/document/d/1p9SBky9aG4Rtlluxr6jkwF4mdRukq7sntscjG-A0RIw/edit?usp=sharing",
+          },
+          {
+            label: "Experts in Canada Study Visa Consultation in Ludhiana",
+            href: "https://docs.google.com/document/d/1n9oK8uRq_KFCtk7nX98W7pw5_pL4nHX9pL1f03T_Of8/edit?usp=sharing",
+          },
         ],
       },
       {
         title: "Hospitality Samples",
         items: [
-          "Why a Beautiful Website Isn't Enough? The Case for Hotel Website Competitive Positioning",
-          "7 On-Page SEO Mistakes That Are Quietly Killing Your Hotel's Direct Bookings",
+          {
+            label: "Why a Beautiful Website Isn't Enough? The Case for Hotel Website Competitive Positioning",
+            href: "https://porticowebworks.com/blog/hotel-website-competitive-positioning",
+          },
+          {
+            label: "7 On-Page SEO Mistakes That Are Quietly Killing Your Hotel's Direct Bookings",
+            href: "https://porticowebworks.com/blog/on-page-seo-mistakes",
+          },
         ],
       },
     ],
@@ -188,7 +246,21 @@ const Work = () => {
                         <h4>{section.title}</h4>
                         <ul className="work-list">
                           {section.items.map((item) => (
-                            <li key={item}>{item}</li>
+                            <li key={item.label}>
+                              {item.href ? (
+                                <a
+                                  href={item.href}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  data-cursor="disable"
+                                  className="work-list-link"
+                                >
+                                  {item.label}
+                                </a>
+                              ) : (
+                                item.label
+                              )}
+                            </li>
                           ))}
                         </ul>
                       </div>

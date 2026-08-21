@@ -53,7 +53,7 @@
   padding: 48px 56px;
   display: flex;
   flex-direction: column;
-  width: 520px;
+  width: 560px;
   box-sizing: border-box;
   border-right: 1px solid #363636;
   flex-shrink: 0;
@@ -99,7 +99,7 @@
   text-align: left;
 }
 .work-title h3 {
-  font-size: 44px;
+  font-size: 52px;
   line-height: 1;
   margin: 0;
   font-weight: 600;
@@ -107,12 +107,12 @@
   opacity: 0.85;
 }
 .work-title h4 {
-  font-size: 26px;
+  font-size: 32px;
   font-weight: 500;
   letter-spacing: 0.02em;
 }
 .work-info h4 {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 400;
   margin: 0;
 }
@@ -121,7 +121,7 @@
   color: #adacac;
   margin: 0;
   margin-top: 4px;
-  font-size: 14px;
+  font-size: 16px;
 }
 .work-info-scroll {
   max-height: min(58vh, 560px);
@@ -131,7 +131,7 @@
   flex: 1;
 }
 .work-box-wide {
-  width: 620px;
+  width: 680px;
 }
 .work-box-empty .work-title {
   border-bottom: none;
@@ -146,9 +146,9 @@
 }
 .work-section-block h4 {
   color: var(--accentColor);
-  font-size: 15px;
+  font-size: 18px;
   letter-spacing: 0.04em;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 .work-list {
   margin: 0;
@@ -157,18 +157,27 @@
 }
 .work-list li {
   position: relative;
-  padding-left: 14px;
-  font-size: 13px;
+  padding-left: 16px;
+  font-size: 16px;
   font-weight: 200;
   color: #adacac;
-  line-height: 1.45;
-  margin-bottom: 7px;
+  line-height: 1.5;
+  margin-bottom: 9px;
 }
 .work-list li::before {
   content: "›";
   position: absolute;
   left: 0;
   color: var(--accentColor);
+}
+.work-list-link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.work-list-link:hover {
+  color: var(--accentColor);
+  text-decoration: underline;
 }
 .work-project-link {
   display: inline-flex;
@@ -288,17 +297,26 @@
 }
 @media only screen and (max-width: 1400px) {
   .work-title h3 {
-    font-size: 32px;
+    font-size: 38px;
   }
   .work-title h4 {
-    font-size: 20px;
+    font-size: 24px;
+  }
+  .work-info p {
+    font-size: 15px;
+  }
+  .work-section-block h4 {
+    font-size: 16px;
+  }
+  .work-list li {
+    font-size: 14px;
   }
   .work-box {
-    width: 380px;
+    width: 420px;
     padding: 36px 32px;
   }
   .work-box-wide {
-    width: 440px;
+    width: 480px;
   }
   .work-flex {
     margin-left: -40px;
