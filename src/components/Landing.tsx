@@ -22,7 +22,7 @@ function useTypingEffect(text: string, delay: number, speed: number, enabled: bo
 
 const Landing = ({ children }: PropsWithChildren) => {
   const { isLoading } = useLoading();
-  const name = useTypingEffect("YOUR NAME", 1500, 120, !isLoading);
+  const name = useTypingEffect("Vedanti Kohli", 1500, 120, !isLoading);
 
   return (
     <>
@@ -32,7 +32,7 @@ const Landing = ({ children }: PropsWithChildren) => {
         <div className="landing-container">
           <div className="landing-intro">
             <h2>Hello! I'm</h2>
-            <h1 className="landing-typed-name" aria-label="YOUR NAME">
+            <h1 className="landing-typed-name" aria-label="Vedanti Kohli">
               {name}<span className="typing-cursor">|</span>
             </h1>
           </div>
@@ -41,13 +41,8 @@ const Landing = ({ children }: PropsWithChildren) => {
           </div>
           <div className="landing-info">
             <h3>A Creative</h3>
-            <h2 className="landing-info-h2" aria-label="Builder, Engineer">
-              <div className="landing-h2-1">Builder</div>
-              <div className="landing-h2-2">Engineer</div>
-            </h2>
-            <h2>
-              <div className="landing-h2-info">Engineer</div>
-              <div className="landing-h2-info-1">Builder</div>
+            <h2 className="landing-info-h2" aria-label="Writer">
+              Writer
             </h2>
             <button
               className="landing-chat-cta"

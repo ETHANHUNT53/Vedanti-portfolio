@@ -1,68 +1,155 @@
 import "./styles/Work.css";
-import WorkImage from "./WorkImage";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import gsap from "gsap";import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(useGSAP);
 
+interface WorkSection {
+  title: string;
+  items: string[];
+}
+
 interface WorkProject {
   name: string;
-  category: string;
-  description: string;
-  tech: string;
-  link?: string;
-  webpage?: string;
-  video?: string;
+  category?: string;
+  sections: WorkSection[];
   image?: string;
 }
 
+const WORK_PROJECTS: WorkProject[] = [
+  {
+    name: "Copywriting Content",
+    category: "Social Media Creatives",
+    sections: [
+      {
+        title: "Instagram Creatives For",
+        items: ["VRG Digital", "Juhi Fertility", "TradeX", "JOLOCHIP"],
+      },
+    ],
+  },
+  {
+    name: "LinkedIn Content",
+    category: "Thought Leadership Posts",
+    sections: [
+      {
+        title: "LinkedIn Posts For",
+        items: ["Juhi Fertility", "TradeX"],
+      },
+    ],
+  },
+  {
+    name: "Landing Pages",
+    category: "Conversion-Focused Copy",
+    sections: [
+      {
+        title: "Landing Pages",
+        items: ["Portico WebWorks", "Zarnik"],
+      },
+    ],
+  },
+  {
+    name: "Blogs and Articles",
+    category: "SEO & Long-Form Writing",
+    sections: [
+      {
+        title: "Interior Design and Furniture Samples",
+        items: [
+          "Best Colour Combinations to Decorate Your Kid's Room",
+          "Best Outdoor Furniture Collection For Small Outdoor Spaces",
+          "Convertible Furniture For Kids: Grow With Your Child's Changing Needs",
+          "Are You Planning Your Dream Home – Important Tips To Keep In Mind Before Doing",
+        ],
+      },
+      {
+        title: "Real Estate Samples",
+        items: [
+          "Basic Information For Expatriates To Buy A House In Amsterdam",
+          "Best Places To Own A Property In Hague",
+        ],
+      },
+      {
+        title: "Finance Samples",
+        items: [
+          "Best Private grants for individuals with disabilities",
+          "Why dental grants for low-income adults are essential",
+        ],
+      },
+      {
+        title: "Visa Consultant-Related Samples",
+        items: [
+          "A STUDY ABROAD DESTINATION CAN OFFER YOU THESE 5 PERKS",
+          "Experts in Canada Study Visa Consultation in Ludhiana",
+        ],
+      },
+      {
+        title: "Hospitality Samples",
+        items: [
+          "Why a Beautiful Website Isn't Enough? The Case for Hotel Website Competitive Positioning",
+          "7 On-Page SEO Mistakes That Are Quietly Killing Your Hotel's Direct Bookings",
+        ],
+      },
+    ],
+  },
+];
+
 const Work = () => {
   useGSAP(() => {
-  let translateX: number = 0;
+    const workSection = document.querySelector(".work-section");
+    if (!workSection) return;
 
-  function setTranslateX() {
-    const box = document.getElementsByClassName("work-box");
-    const rectLeft = document
-      .querySelector(".work-container")!
-      .getBoundingClientRect().left;
-    const rect = box[0].getBoundingClientRect();
-    const parentWidth = box[0].parentElement!.getBoundingClientRect().width;
-    let padding: number =
-      parseInt(window.getComputedStyle(box[0]).padding) / 2;
-    translateX = rect.width * box.length - (rectLeft + parentWidth) + padding;
-  }
+    gsap.set(workSection, { autoAlpha: 0 });
 
-  setTranslateX();
+    let translateX = 0;
 
-  let timeline = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".work-section",
-      start: "top top",
-      end: `+=${translateX}`, // Use actual scroll width
-      scrub: true,
-      pin: true,
-      id: "work",
-    },
-  });
+    function setTranslateX() {
+      const box = document.getElementsByClassName("work-box");
+      const rectLeft = document
+        .querySelector(".work-container")!
+        .getBoundingClientRect().left;
+      const rect = box[0].getBoundingClientRect();
+      const parentWidth = box[0].parentElement!.getBoundingClientRect().width;
+      const padding =
+        parseInt(window.getComputedStyle(box[0]).padding) / 2;
+      translateX =
+        rect.width * box.length - (rectLeft + parentWidth) + padding;
+    }
 
-  timeline.to(".work-flex", {
-    x: -translateX,
-    ease: "none",
-  });
+    setTranslateX();
 
-  // Scroll progress bar
-  timeline.to(".work-scroll-progress", {
-    scaleX: 1,
-    ease: "none",
-  }, 0);
+    const timeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".work-section",
+        start: "top top",
+        end: `+=${translateX}`,
+        scrub: true,
+        pin: true,
+        id: "work",
+        invalidateOnRefresh: true,
+        onEnter: () => gsap.set(workSection, { autoAlpha: 1 }),
+        onLeaveBack: () => gsap.set(workSection, { autoAlpha: 0 }),
+      },
+    });
 
-  // Clean up (optional, good practice)
-  return () => {
-    timeline.kill();
-    ScrollTrigger.getById("work")?.kill();
-  };
-}, []);
+    timeline.to(".work-flex", {
+      x: -translateX,
+      ease: "none",
+    });
+
+    timeline.to(
+      ".work-scroll-progress",
+      {
+        scaleX: 1,
+        ease: "none",
+      },
+      0
+    );
+
+    return () => {
+      timeline.kill();
+      ScrollTrigger.getById("work")?.kill();
+    };
+  }, []);
+
   return (
     <div className="work-section" id="work">
       <div className="work-scroll-track">
@@ -73,77 +160,32 @@ const Work = () => {
           My <span>Work</span>
         </h2>
         <div className="work-flex">
-          {([
-            {
-              name: "Project One",
-              category: "Category / Type",
-              description:
-                "Short description of your project. Explain what it does, the problem it solves, and the impact it had. Replace this placeholder with your own project details.",
-              tech: "Tech, Stack, Tools",
-              link: "https://github.com/yourusername",
-              image: "/images/placeholder.webp",
-            },
-            {
-              name: "Project Two",
-              category: "Category / Type",
-              description:
-                "Short description of your project. Explain what it does, the problem it solves, and the impact it had. Replace this placeholder with your own project details.",
-              tech: "Tech, Stack, Tools",
-              link: "https://github.com/yourusername",
-              image: "/images/placeholder.webp",
-            },
-            {
-              name: "Project Three",
-              category: "Category / Type",
-              description:
-                "Short description of your project. Explain what it does, the problem it solves, and the impact it had. Replace this placeholder with your own project details.",
-              tech: "Tech, Stack, Tools",
-              link: "https://github.com/yourusername",
-              image: "/images/placeholder.webp",
-            },
-          ] as WorkProject[]).map((project, index) => (
-            <div className="work-box" key={index}>
+          {WORK_PROJECTS.map((project, index) => (
+            <div
+              className={`work-box${project.sections.length > 2 ? " work-box-wide" : ""}`}
+              key={project.name}
+            >
               <div className="work-info">
                 <div className="work-title">
                   <h3>0{index + 1}</h3>
-
                   <div>
                     <h4>{project.name}</h4>
-                    <p>{project.category}</p>
+                    {project.category && <p>{project.category}</p>}
                   </div>
                 </div>
-                {project.description && <p>{project.description}</p>}
-                <h4>Tools and features</h4>
-                <p>{project.tech}</p>
-                {"link" in project && project.link && (
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noreferrer"
-                    data-cursor="disable"
-                    className="work-project-link"
-                  >
-                    View GitHub
-                  </a>
-                )}
-                {"webpage" in project && project.webpage && (
-                  <a
-                    href={project.webpage}
-                    target="_blank"
-                    rel="noreferrer"
-                    data-cursor="disable"
-                    className="work-project-link"
-                  >
-                    View Webpage
-                  </a>
-                )}
+                <div className="work-info-scroll">
+                  {project.sections.map((section) => (
+                    <div className="work-section-block" key={section.title}>
+                      <h4>{section.title}</h4>
+                      <ul className="work-list">
+                        {section.items.map((item) => (
+                          <li key={item}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
               </div>
-              <WorkImage
-                image={"image" in project && project.image ? project.image : "/images/placeholder.webp"}
-                alt={project.name}
-                video={"video" in project ? project.video : undefined}
-                link={"webpage" in project ? project.webpage : "link" in project ? project.link : undefined}
-              />
             </div>
           ))}
         </div>

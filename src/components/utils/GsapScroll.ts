@@ -120,7 +120,7 @@ export function setAllTimeline() {
     scrollTrigger: {
       trigger: ".career-section",
       start: "top 30%",
-      end: "100% center",
+      end: "bottom top",
       scrub: true,
       invalidateOnRefresh: true,
     },
@@ -140,7 +140,7 @@ export function setAllTimeline() {
       0
     )
     .fromTo(
-      ".career-info-box",
+      ".career-info-box, .career-earlier",
       { opacity: 0 },
       { opacity: 1, stagger: 0.1, duration: 0.5 },
       0
@@ -156,7 +156,7 @@ export function setAllTimeline() {
     careerTimeline.fromTo(
       ".career-section",
       { y: 0 },
-      { y: "20%", duration: 0.5, delay: 0.2 },
+      { y: "8%", duration: 0.5, delay: 0.2 },
       0
     );
   } else {

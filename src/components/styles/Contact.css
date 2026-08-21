@@ -1,7 +1,8 @@
 .contact-section {
   margin: auto;
+  margin-top: 0;
+  padding-top: 60px;
   padding-bottom: 100px;
-  margin-top: 100px;
 }
 .contact-section h3 {
   font-size: 60px;
@@ -100,7 +101,7 @@ a.contact-resume:hover {
     margin-top: 20px;
   }
   .contact-section {
-    margin-top: 50px;
+    padding-top: 48px;
     padding-bottom: 50px;
   }
   .contact-container {

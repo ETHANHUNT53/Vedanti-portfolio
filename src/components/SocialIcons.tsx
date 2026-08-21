@@ -1,12 +1,12 @@
 import {
-  FaGithub,
   FaInstagram,
   FaLinkedinIn,
 } from "react-icons/fa6";
 import "./styles/SocialIcons.css";
-import { TbNotes } from "react-icons/tb";
+import { TbNotes, TbWorld } from "react-icons/tb";
 import { useEffect } from "react";
 import HoverLinks from "./HoverLinks";
+import { RESUME_DOWNLOAD_NAME, RESUME_URL } from "../data/resume";
 
 const SocialIcons = () => {
   useEffect(() => {
@@ -57,13 +57,13 @@ const SocialIcons = () => {
   return (
     <div className="icons-section">
       <div className="social-icons" data-cursor="icons" id="social">
-        <span>
+        {/* <span>
           <a href="https://github.com/yourusername" target="_blank">
             <FaGithub />
           </a>
-        </span>
+        </span> */}
         <span>
-          <a href="https://linkedin.com/in/yourusername" target="_blank">
+          <a href="https://www.linkedin.com/in/vedanti-kohli-03225b199/" target="_blank">
             <FaLinkedinIn />
           </a>
         </span>
@@ -73,16 +73,25 @@ const SocialIcons = () => {
           </a>
         </span> */}
         <span>
-          <a href="https://www.instagram.com/yourusername" target="_blank">
+          <a
+            href="https://startupveda.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <TbWorld />
+          </a>
+        </span>
+        <span>
+          <a href="https://www.instagram.com/kohli.vedanti?igsi=MXRqeXN6b3F5MWZjZA%3D%3D&utm_source=qr" target="_blank">
             <FaInstagram />
           </a>
         </span>
       </div>
       <a
         className="resume-button"
-        href="/resume.pdf"
-        target="_blank"
-        rel="noopener noreferrer"
+        href={RESUME_URL}
+        download={RESUME_DOWNLOAD_NAME}
+        data-cursor="disable"
       >
         <HoverLinks text="RESUME" />
         <span>

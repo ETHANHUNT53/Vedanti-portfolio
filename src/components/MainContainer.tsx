@@ -1,4 +1,4 @@
-import { lazy, PropsWithChildren, Suspense, useEffect } from "react";
+import { PropsWithChildren, useEffect } from "react";
 import About from "./About";
 import Career from "./Career";
 import Contact from "./Contact";
@@ -9,8 +9,6 @@ import SocialIcons from "./SocialIcons";
 import WhatIDo from "./WhatIDo";
 import Work from "./Work";
 import setSplitText from "./utils/splitText";
-
-const TechStack = lazy(() => import("./TechStack"));
 
 const MainContainer = ({ children }: PropsWithChildren) => {
   useEffect(() => {
@@ -42,9 +40,6 @@ const MainContainer = ({ children }: PropsWithChildren) => {
             <WhatIDo />
             <Career />
             <Work />
-            <Suspense fallback={<div style={{ height: "50vh" }} />}>
-              <TechStack />
-            </Suspense>
             <Contact />
           </div>
         </div>

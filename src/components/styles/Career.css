@@ -5,11 +5,13 @@
   place-items: center;
   justify-content: center;
   position: relative;
+  z-index: 2;
   opacity: 1;
   height: auto;
   margin: auto;
-  margin-bottom: 120px;
-  padding: 120px 0px;
+  margin-bottom: 160px;
+  padding: 120px 0px 80px;
+  background-color: var(--backgroundColor);
 }
 
 .career-section h2 {
@@ -46,32 +48,111 @@
   font-weight: 300;
   margin: 0;
 }
+.career-details {
+  width: 40%;
+}
+.career-context {
+  font-size: 18px;
+  font-weight: 300;
+  margin: 0 0 12px;
+  opacity: 0.85;
+}
+.career-bullets {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.career-bullets li {
+  position: relative;
+  padding-left: 18px;
+  font-size: 18px;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+.career-bullets li::before {
+  content: "›";
+  position: absolute;
+  left: 0;
+  color: var(--accentColor);
+  font-weight: 500;
+}
+.career-earlier {
+  margin-top: 20px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(16, 185, 129, 0.25);
+}
+.career-earlier-heading {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  margin: 0 0 24px;
+  color: var(--accentColor);
+}
+.career-earlier-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.career-earlier-role {
+  display: flex;
+  flex-direction: column;
+  width: 42%;
+  gap: 4px;
+}
+.career-earlier-title {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+}
+.career-earlier-company {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--accentColor);
+}
+.career-earlier-period {
+  width: 42%;
+  font-size: 18px;
+  font-weight: 300;
+  text-align: right;
+  white-space: nowrap;
+  flex-shrink: 0;
+  letter-spacing: 0.2px;
+}
 .career-info-in {
   display: flex;
-  width: 40%;
+  width: 42%;
   justify-content: space-between;
-  gap: 50px;
+  align-items: flex-start;
+  gap: 12px;
 }
 .career-info h3 {
-  font-size: 48px;
+  font-size: 22px;
   margin: 0;
   font-weight: 500;
-  line-height: 45px;
+  line-height: 1.1;
+  white-space: nowrap;
+  flex-shrink: 0;
+  letter-spacing: 0.2px;
 }
 
 .career-info h4 {
-  font-size: 33px;
-  line-height: 30px;
-  letter-spacing: 0.8px;
+  font-size: 18px;
+  line-height: 1.2;
+  letter-spacing: 0.2px;
   font-weight: 500;
   margin: 0;
+  white-space: nowrap;
 }
 .career-info h5 {
   font-weight: 400;
-  letter-spacing: 0.7px;
-  font-size: 20px;
+  letter-spacing: 0.5px;
+  font-size: 18px;
   text-transform: capitalize;
-  margin: 10px 0px;
+  margin: 8px 0px;
   color: var(--accentColor);
 }
 .career-timeline {
@@ -136,26 +217,39 @@
     line-height: 50px;
   }
   .career-info h4 {
-    font-size: 22px;
-    line-height: 24px;
-    width: 180px;
+    font-size: 14px;
+    line-height: 1.2;
+    width: auto;
   }
   .career-info h5 {
-    font-size: 17px;
+    font-size: 14px;
   }
   .career-info h3 {
-    font-size: 40px;
+    font-size: 16px;
   }
-  .career-info-box p {
+  .career-info-box p,
+  .career-details,
+  .career-context,
+  .career-bullets li {
     font-size: 14px;
   }
   .career-info-in {
     width: 45%;
-    gap: 20px;
+    gap: 10px;
   }
 
-  .career-info-box p {
+  .career-info-box p,
+  .career-details {
     width: 45%;
+  }
+  .career-earlier-title {
+    font-size: 14px;
+  }
+  .career-earlier-company {
+    font-size: 13px;
+  }
+  .career-earlier-period {
+    font-size: 14px;
   }
 }
 @media only screen and (max-width: 1025px) {
@@ -173,10 +267,23 @@
     margin-bottom: 70px;
   }
   .career-info-in,
-  .career-info-box p {
+  .career-info-box p,
+  .career-details {
     width: 100%;
     padding-left: 10%;
     box-sizing: border-box;
+  }
+  .career-earlier-role,
+  .career-earlier-period {
+    width: 100%;
+    padding-left: 10%;
+    box-sizing: border-box;
+    text-align: left;
+  }
+  .career-earlier-box {
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 28px;
   }
   .career-timeline {
     left: 0%;
@@ -199,10 +306,28 @@
     gap: 0px;
   }
   .career-info h3 {
-    font-size: 33px;
+    font-size: 14px;
+  }
+  .career-info h4 {
+    font-size: 13px;
+  }
+  .career-info h5 {
+    font-size: 12px;
+  }
+  .career-earlier-title {
+    font-size: 13px;
+  }
+  .career-earlier-company {
+    font-size: 12px;
+  }
+  .career-earlier-period {
+    font-size: 13px;
   }
   .career-info-in,
-  .career-info-box p {
+  .career-info-box p,
+  .career-details,
+  .career-earlier-role,
+  .career-earlier-period {
     padding-left: 5%;
   }
   .career-section {
